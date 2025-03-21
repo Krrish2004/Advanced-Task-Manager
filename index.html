@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Advanced Task Manager</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+        </header>
+
+        <div class="task-form-container">
+            <h2>Create New Task</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Title</label>
+                    <input type="text" id="task-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Description</label>
+                    <textarea id="task-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority" required>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-due-date">Due Date & Time</label>
+                    <input type="datetime-local" id="task-due-date" required>
+                </div>
+                <button type="submit" class="btn-primary">Add Task</button>
+            </form>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="upcoming">Upcoming Tasks</button>
+                <button class="tab-btn" data-tab="ongoing">Ongoing Tasks</button>
+                <button class="tab-btn" data-tab="completed">Completed Tasks</button>
+                <button class="tab-btn" data-tab="missed">Missed Tasks</button>
+            </div>
+
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+
+            <div class="tab-content active" id="upcoming-tasks">
+                <h3>Upcoming Tasks</h3>
+                <div class="task-list" id="upcoming-task-list"></div>
+            </div>
+
+            <div class="tab-content" id="ongoing-tasks">
+                <h3>Ongoing Tasks</h3>
+                <div class="task-list" id="ongoing-task-list"></div>
+            </div>
+
+            <div class="tab-content" id="completed-tasks">
+                <h3>Completed Tasks</h3>
+                <div class="task-list" id="completed-task-list"></div>
+            </div>
+
+            <div class="tab-content" id="missed-tasks">
+                <h3>Missed Tasks</h3>
+                <div class="task-list" id="missed-task-list"></div>
+            </div>
+        </div>
+
+        <div class="notification-area" id="notification-area"></div>
+    </div>
+
+    <template id="task-template">
+        <div class="task-item" draggable="true">
+            <div class="task-header">
+                <h4 class="task-title"></h4>
+                <span class="task-priority"></span>
+            </div>
+            <p class="task-description"></p>
+            <div class="task-meta">
+                <span class="task-due-date"></span>
+                <span class="task-time-left"></span>
+            </div>
+            <div class="task-actions">
+                <button class="btn-complete"><i class="fas fa-check"></i> Complete</button>
+                <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html> 
