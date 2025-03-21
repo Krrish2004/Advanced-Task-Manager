@@ -38,7 +38,7 @@ A feature-rich task scheduling and management application built with modern Java
 #### Option 1: Local Setup
 1. Clone this repository to your local machine
    ```
-   git clone https://github.com/yourusername/advanced-task-manager.git
+   git clone https://github.com/Krrish2004/Advanced-Task-Manager.git
    ```
 2. Navigate to the project directory
    ```
